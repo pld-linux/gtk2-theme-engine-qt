@@ -11,7 +11,7 @@ Patch0:		%{name}-qtdir.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	qt-devel
