@@ -11,7 +11,7 @@ Patch0:		%{name}-qtdir.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,11 +26,10 @@ wybranego stylu QT. Inaczej mówi±c - sprawia, ¿e aplikacje GTK
 wygl±daj± jak aplikacje QT.
 
 %prep
-%setup  -q -n gtk-qt-engine-%{version}
+%setup -q -n gtk-qt-engine-%{version}
 %patch0 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -44,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.2.*/engines/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -51,5 +52,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.2.*/engines/*.so
-%{_libdir}/gtk-2.0/2.2.*/engines/*.la
 %{_datadir}/themes/Qt
