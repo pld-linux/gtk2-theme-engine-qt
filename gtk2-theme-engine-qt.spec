@@ -2,9 +2,9 @@ Summary:	A GTK theme engine that uses QT for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy QT do rysowania kontrolek GTK
 Name:		gtk2-theme-engine-qt
 Version:	0.3
-Release:	3
+Release:	4
 License:	GPL
-Group:		Themes/Gtk
+Group:		Themes/GTK+
 Source0:	http://www.freedesktop.org/Software/gtk-qt/gtk-qt-engine-%{version}.tar.bz2
 # Source0-md5:	0685783bec472b682366f213134a6b3c
 Patch0:		%{name}-qtdir.patch
