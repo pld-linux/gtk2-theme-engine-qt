@@ -12,10 +12,9 @@ Source0:	http://www.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.b
 # Source0-md5:	9c02c95a6e8d304b1f2801429759e1c0
 URL:		http://www.freedesktop.org/Software/gtk-qt
 BuildRequires:	gtk+2-devel >= 1:2.0.0
-BuildRequires:	libtool
+BuildRequires:	kdelibs-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt-devel
-BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
