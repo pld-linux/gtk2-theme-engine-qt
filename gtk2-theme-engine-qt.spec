@@ -2,7 +2,7 @@ Summary:	A GTK theme engine that uses QT for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy QT do rysowania kontrolek GTK
 Name:		gtk2-theme-engine-qt
 Version:	0.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes/GTK+
 Source0:	http://www.freedesktop.org/Software/gtk-qt/gtk-qt-engine-%{version}.tar.bz2
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.2.*/engines/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.4.*/engines/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.2.*/engines/*.so
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.4.*/engines/*.so
 %{_datadir}/themes/Qt
