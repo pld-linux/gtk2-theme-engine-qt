@@ -1,5 +1,5 @@
-Summary:	A GTK theme engine that uses QT for drawing
-Summary(pl):	Silnik graficzny wykorzystuj±cy QT do rysowania kontrolek GTK
+Summary:	A GTK theme engine that uses Qt for drawing
+Summary(pl):	Silnik graficzny wykorzystuj±cy Qt do rysowania kontrolek GTK
 Name:		gtk2-theme-engine-qt
 Version:	0.3
 Release:	4
@@ -17,13 +17,13 @@ BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This GTK theme engine uses the currently selected QT style to do it's
-drawing. Basically, it makes your GTK apps look like QT ones.
+This GTK theme engine uses the currently selected Qt style to do it's
+drawing. Basically, it makes your GTK apps look like Qt ones.
 
 %description -l pl
 Ten silnik graficzny do rysowania kontrolek GTK u¿ywa aktualnie
-wybranego stylu QT. Inaczej mówi±c - sprawia, ¿e aplikacje GTK
-wygl±daj± jak aplikacje QT.
+wybranego stylu Qt. Inaczej mówi±c - sprawia, ¿e aplikacje GTK
+wygl±daj± jak aplikacje Qt.
 
 %prep
 %setup -q -n gtk-qt-engine-%{version}
