@@ -1,20 +1,21 @@
+# TODO
+# - kde control panel applet doesn't get found
+# - where to place the .theme?
 Summary:	A GTK+ theme engine that uses Qt for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
-Version:	0.3
-Release:	4
+Version:	0.6
+Release:	0.5
 License:	GPL
 Group:		Themes/GTK+
-Source0:	http://www.freedesktop.org/Software/gtk-qt/gtk-qt-engine-%{version}.tar.bz2
-# Source0-md5:	0685783bec472b682366f213134a6b3c
-Patch0:		%{name}-qtdir.patch
+Source0:	http://www.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
+# Source0-md5:	9c02c95a6e8d304b1f2801429759e1c0
 URL:		http://www.freedesktop.org/Software/gtk-qt
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	qt-devel
+BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,13 +29,8 @@ wygl±daj± jak aplikacje Qt.
 
 %prep
 %setup -q -n gtk-qt-engine-%{version}
-%patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
 %configure
 %{__make}
 
@@ -54,3 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.4.*/engines/*.so
 %{_datadir}/themes/Qt
+%{_libdir}/kde3/kcm_kcmgtk.la
+%attr(755,root,root) %{_libdir}/kde3/kcm_kcmgtk.so
+%{_desktopdir}/kcmgtk-xdg.desktop
