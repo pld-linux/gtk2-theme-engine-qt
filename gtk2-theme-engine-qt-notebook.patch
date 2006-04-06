@@ -1,0 +1,12 @@
+--- gtk-qt-engine-0.6/src/qt_qt_wrapper.cpp.3919	2004-12-19 09:31:48.000000000 -0600
++++ gtk-qt-engine-0.6/src/qt_qt_wrapper.cpp	2005-10-27 09:48:07.000000000 -0500
+@@ -1363,7 +1363,8 @@
+ 	int sdiff = 10000, pos = -1, diff = 1;
+ 	for ( int i = 0; i < g_list_length(notebook->children); i++ )
+ 	{
+-		diff = gtk_notebook_get_tab_label(notebook,gtk_notebook_get_nth_page(notebook,i))->allocation.x - x;
++		GtkWidget *tab_label=gtk_notebook_get_tab_label(notebook,gtk_notebook_get_nth_page(notebook,i));
++		if (tab_label) diff = tab_label->allocation.x - x;
+ 		if ((diff > 0) && (diff < sdiff))
+ 		{
+ 			sdiff = diff; pos = i;

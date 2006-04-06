@@ -1,19 +1,26 @@
 # TODO
 # - kde control panel applet doesn't get found
-# - where to place the .theme?
 Summary:	A GTK+ theme engine that uses Qt for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
 Version:	0.6
-Release:	0.6
+Release:	1
 License:	GPL
 Group:		Themes/GTK+
 Source0:	http://www.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
 # Source0-md5:	9c02c95a6e8d304b1f2801429759e1c0
 Patch0:		%{name}-black-menus.patch
+Patch1:		%{name}-kcm-fixinstallationdir.patch
+# don't dup GTK-QT in kde menu(s)
+Patch2:		%{name}-dt.patch
+# segfault in libqtengine.so drawing notebook
+# https://bugs.freedesktop.org/show_bug.cgi?id=3919
+Patch3:		%{name}-notebook.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	kdelibs-devel
+BuildRequires:	libbonoboui-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,8 +37,14 @@ wygl±daj± jak aplikacje Qt.
 %prep
 %setup -q -n gtk-qt-engine-%{version}
 %patch0 -p1
+%patch1 -p0
+%patch2 -p1
+%patch3 -p1
+
+%{__make} -f admin/Makefile.common cvs
 
 %build
+export QTLIB=%{_libdir}
 %configure
 %{__make}
 
@@ -48,9 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.4.*/engines/*.so
 %{_datadir}/themes/Qt
+%{_datadir}/gtk-qt-engine/
+%{_desktopdir}/*.desktop
+%{_datadir}/applnk/Settings/LookNFeel/*.desktop
 %{_libdir}/kde3/kcm_kcmgtk.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_kcmgtk.so
-%{_desktopdir}/kcmgtk-xdg.desktop
