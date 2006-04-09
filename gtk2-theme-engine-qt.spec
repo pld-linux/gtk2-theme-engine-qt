@@ -4,7 +4,7 @@ Summary:	A GTK+ theme engine that uses Qt for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
 Version:	0.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes/GTK+
 Source0:	http://www.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
@@ -54,6 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# proper category
+sed -i 's/Categories=.*/Categories=X-KDE-settings-looknfeel;/' \
+	$RPM_BUILD_ROOT%{_desktopdir}/kcmgtk-xdg.desktop
+
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.4.*/engines/*.la
 
 %clean
@@ -66,6 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/Qt
 %{_datadir}/gtk-qt-engine/
 %{_desktopdir}/*.desktop
-%{_datadir}/applnk/Settings/LookNFeel/*.desktop
 %{_libdir}/kde3/kcm_kcmgtk.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_kcmgtk.so
