@@ -17,6 +17,7 @@ Patch2:		%{name}-dt.patch
 # https://bugs.freedesktop.org/show_bug.cgi?id=3919
 Patch3:		%{name}-notebook.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	kdelibs-devel
