@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 sed -i 's/Categories=.*/Categories=X-KDE-settings-looknfeel;/' \
 	$RPM_BUILD_ROOT%{_desktopdir}/kcmgtk-xdg.desktop
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.4.*/engines/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/*/engines/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.4.*/engines/*.so
+%attr(755,root,root) %{_libdir}/gtk-2.0/*/engines/*.so
 %{_datadir}/themes/Qt
 %{_datadir}/gtk-qt-engine/
 %{_desktopdir}/*.desktop
