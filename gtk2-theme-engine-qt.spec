@@ -16,6 +16,9 @@ Patch2:		%{name}-dt.patch
 # segfault in libqtengine.so drawing notebook
 # https://bugs.freedesktop.org/show_bug.cgi?id=3919
 Patch3:		%{name}-notebook.patch
+Patch4:		kde-ac260-lt.patch
+Patch5:		kde-ac260.patch
+Patch6:		kde-am110.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -41,6 +44,9 @@ wygl±daj± jak aplikacje Qt.
 %patch1 -p0
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %{__make} -f admin/Makefile.common cvs
 
