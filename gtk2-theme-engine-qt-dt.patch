@@ -1,8 +1,0 @@
---- gtk-qt-engine-0.6/kcm_gtk/kcmgtk.desktop.dt	2004-08-22 03:40:29.000000000 -0500
-+++ gtk-qt-engine-0.6/kcm_gtk/kcmgtk.desktop	2006-01-23 09:28:15.000000000 -0600
-@@ -12,3 +12,5 @@
- X-KDE-Library=kcmgtk
- X-KDE-ModuleType=Library
- Type=Application
-+
-+NotShowIn=KDE
