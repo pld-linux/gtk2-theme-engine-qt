@@ -1,24 +1,18 @@
 # TODO
 # - kde control panel applet doesn't get found
+#   (recheck - probably caused by old -dt patch which added NotShowIn=KDE instead of OnlyShowIn)
 Summary:	A GTK+ theme engine that uses Qt for drawing
 Summary(pl):	Silnik graficzny wykorzystuj±cy Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
-Version:	0.6
-Release:	2
+Version:	0.7
+Release:	1
 License:	GPL
 Group:		Themes/GTK+
-Source0:	http://www.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
-# Source0-md5:	9c02c95a6e8d304b1f2801429759e1c0
-Patch0:		%{name}-black-menus.patch
-Patch1:		%{name}-kcm-fixinstallationdir.patch
-# don't dup GTK-QT in kde menu(s)
-Patch2:		%{name}-dt.patch
-# segfault in libqtengine.so drawing notebook
-# https://bugs.freedesktop.org/show_bug.cgi?id=3919
-Patch3:		%{name}-notebook.patch
-Patch4:		kde-ac260-lt.patch
-Patch5:		kde-ac260.patch
-Patch6:		kde-am110.patch
+Source0:	http://people.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
+# Source0-md5:	27ca211621f38c45b1c4c9e9ef1f84b0
+Patch0:		kde-ac260-lt.patch
+Patch1:		kde-ac260.patch
+Patch2:		kde-am110.patch
 URL:		http://www.freedesktop.org/Software/gtk-qt
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -39,14 +33,10 @@ wybranego stylu Qt. Inaczej mówi±c - sprawia, ¿e aplikacje GTK+
 wygl±daj± jak aplikacje Qt.
 
 %prep
-%setup -q -n gtk-qt-engine-%{version}
+%setup -q -n gtk-qt-engine
 %patch0 -p1
-%patch1 -p0
+%patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
 
 %{__make} -f admin/Makefile.common cvs
 
@@ -75,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS
 %attr(755,root,root) %{_libdir}/gtk-2.0/*/engines/*.so
 %{_datadir}/themes/Qt
-%{_datadir}/gtk-qt-engine/
+%{_datadir}/gtk-qt-engine
 %{_desktopdir}/*.desktop
 %{_libdir}/kde3/kcm_kcmgtk.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_kcmgtk.so
