@@ -2,7 +2,7 @@
 # - kde control panel applet doesn't get found
 #   (recheck - probably caused by old -dt patch which added NotShowIn=KDE instead of OnlyShowIn)
 Summary:	A GTK+ theme engine that uses Qt for drawing
-Summary(pl.UTF-8):   Silnik graficzny wykorzystujący Qt do rysowania kontrolek GTK+
+Summary(pl.UTF-8):	Silnik graficzny wykorzystujący Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
 Version:	0.7
 Release:	1
