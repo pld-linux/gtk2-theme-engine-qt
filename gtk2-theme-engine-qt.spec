@@ -13,7 +13,7 @@ Source0:	http://people.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.ta
 Patch0:		kde-ac260-lt.patch
 Patch1:		kde-ac260.patch
 Patch2:		kde-am110.patch
-URL:		http://www.freedesktop.org/Software/gtk-qt
+URL:		http://gtk-qt.ecs.soton.ac.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
