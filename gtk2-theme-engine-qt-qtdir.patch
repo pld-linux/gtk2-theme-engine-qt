@@ -1,0 +1,14 @@
+diff -ruN gtk-qt-engine-0.3./Makefile.am gtk-qt-engine-0.3/Makefile.am
+--- gtk-qt-engine-0.3./Makefile.am	2004-02-09 19:50:12.000000000 +0100
++++ gtk-qt-engine-0.3/Makefile.am	2004-02-23 22:38:08.999756112 +0100
+@@ -1,8 +1,8 @@
+ SUBDIRS = Theme
+ 
+-QTDIR = /usr/lib/qt3
++QTDIR = /usr
+ 
+-INCLUDES = $(QTENGINE_CFLAGS) -I$(QTDIR)/include/
++INCLUDES = $(QTENGINE_CFLAGS) -I$(QTDIR)/include/qt
+ 
+ enginedir = $(libdir)/gtk-2.0/$(GTK_VERSION)/engines
+ 
