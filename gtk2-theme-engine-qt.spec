@@ -5,7 +5,7 @@ Version:	0.8
 Release:	1
 License:	GPL
 Group:		Themes/GTK+
-Source0:	http://people.freedesktop.org/~davidsansome/gtk-qt-engine-%{version}.tar.bz2
+Source0:	http://gtk-qt.ecs.soton.ac.uk/files/0.8/gtk-qt-engine-%{version}.tar.bz2
 # Source0-md5:	9fe75b7765b6a5b49901fcd6f4f4aa4b
 URL:		http://gtk-qt.ecs.soton.ac.uk/
 BuildRequires:	autoconf
