@@ -2,7 +2,7 @@ Summary:	A GTK+ theme engine that uses Qt for drawing
 Summary(pl.UTF-8):	Silnik graficzny wykorzystujący Qt do rysowania kontrolek GTK+
 Name:		gtk2-theme-engine-qt
 Version:	0.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes/GTK+
 Source0:	http://gtk-qt.ecs.soton.ac.uk/files/0.8/gtk-qt-engine-%{version}.tar.bz2
@@ -16,6 +16,7 @@ BuildRequires:	kdelibs-devel
 BuildRequires:	libbonoboui-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt-devel
+BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,9 +32,9 @@ wyglądają jak aplikacje Qt.
 %setup -q -n gtk-qt-engine
 
 %build
-cmake \
-    -DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    .
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	.
 %{__make}
 
 %install
